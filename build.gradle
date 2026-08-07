@@ -3,9 +3,9 @@ plugins {
     id 'maven-publish'
     id 'uk.gov.hmcts.java' version '0.12.70'
     id 'io.spring.dependency-management' version '1.1.7'
-    id 'org.springframework.boot' version '4.0.6'
+    id 'org.springframework.boot' version '4.1.0'
     id 'org.owasp.dependencycheck' version '13.0.0'
-    id 'com.github.ben-manes.versions' version '0.59.0'
+    id 'io.github.ben-manes.versions' version '0.59.0'
     id 'se.patrikerdes.use-latest-versions' version '0.2.19'
     id 'au.com.dius.pact' version '4.7.4'
 }
@@ -149,10 +149,13 @@ publishing {
 }
 
 dependencies {
-    implementation platform('org.springframework.cloud:spring-cloud-dependencies:2025.1.1')
+    implementation platform('org.springframework.cloud:spring-cloud-dependencies:2025.1.2')
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    runtimeOnly 'org.springframework.boot:spring-boot-http-converter'
+
     implementation 'io.github.openfeign:feign-jackson'
     implementation 'com.eatthepath:java-otp:0.4.0'
     implementation 'commons-codec:commons-codec'
